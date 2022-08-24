@@ -23,11 +23,11 @@ How default methods in interface cope up with diamond problem?
 Default methods are called with Interface names only, so there is no ambiguity for diamond problem to occur.
 InterfaceName.super.methodName();
 
-```java
+```
 public void eat() {
-        // TODO Auto-generated method stub
-        Animal.super.eat();
-    };
+    // TODO Auto-generated method stub
+    Animal.super.eat();
+};
 ```
 
 
