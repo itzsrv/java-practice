@@ -2,5 +2,5 @@ package lambda.introduction;
 
 
 public interface Greeting {
-    public void perform();
+    public void greet();
 }
