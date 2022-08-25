@@ -40,8 +40,7 @@ A stream pipeline consists of a source, followed by zero or more intermediate op
 ### Stream source
 Streams can be created from Collections, Lists, Sets, ints, longs, doubles, arrays, lines of a file
 
->
-source -> filter -> sort -> map -> collect
+>source -> filter -> sort -> map -> collect
 
 Stream operations are either intermediate or terminal operations.
 
