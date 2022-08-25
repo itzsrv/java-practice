@@ -1,25 +1,25 @@
 
-#Java 8 Features
+# Java 8 Features
 
-##Functional Interface
+## Functional Interface
 
 Interfaces with single abstract method qualifies to be called as Funtional Interface.
 Catch: It can have multiple default and static methods
 
 
-###Default and Static Methods
+### Default and Static Methods
 
-###Why static methods are introduced in java 8?
+### Why static methods are introduced in java 8?
 static methods restrict the implementation classes to override the provided behaviour of the Interface method and hence gives access to original behaviour via Interface Name.
 
-###Are Interface static methods availabe to implementing classes by default?
+### Are Interface static methods availabe to implementing classes by default?
 No, static methods are available with Interface names only.
 
 
-###Why diamond problem will not occur in Interface static methods?
+### Why diamond problem will not occur in Interface static methods?
 Because static methods are not part of implementation classes.
 
-###How default methods in interface cope up with diamond problem?
+### How default methods in interface cope up with diamond problem?
 Default methods are called with Interface names only, so there is no ambiguity for diamond problem to occur.   
 InterfaceName.super.methodName();
 
@@ -30,14 +30,14 @@ public void eat() {
 };
 ```
 
-##Streams
+## Streams
 
 Streams bring functional programming to java, and are supported starting java 8.
 
 A stream is a sequence of elements supporting sequential and parallel aggregate operations.
 A stream pipeline consists of a source, followed by zero or more intermediate operations, and a terminal operation.
 
-###Stream source
+### Stream source
 Streams can be created from Collections, Lists, Sets, ints, longs, doubles, arrays, lines of a file
 
 >
@@ -45,7 +45,7 @@ source -> filter -> sort -> map -> collect
 
 Stream operations are either intermediate or terminal operations.
 
-###Intermediate Operations
+### Intermediate Operations
 such as filter, map or sort return a stream, so we can chain multiple intermediate operations.
 anyMatch()
 distinct()
@@ -63,7 +63,7 @@ peek()
 
 
 
-###Terminal Operations
+### Terminal Operations
 only one terminal operation is allowed
 such as forEach, collect or reduce are either void or return a non-stream result
 forEach()       applies same function to each element
@@ -86,7 +86,7 @@ other options reduce the stream to a single summary element
 **For very large data sets, use ParallelStream to enable multiple threads**
 
 
-##Optional
+## Optional
 One thing which may go wrong the the matching and finding elements is that there might be a case when no element is returned by them. In such a case these methods simply return Null. This may be error-prone to the client codes and the client program needs to put a Null check. Java 8 comes up with a special class which helps solving this problem. The Optional class represents whether an object is assigned or unassigned (Null).
 
 The methods like **findAny, findFirst, and reduce** (when called without providing an identity) return values wrapped under Optional. We can call all of the stream like operations on Optional as well. Below, we will look at the use of Optional in matching and finding operations.
@@ -107,13 +107,13 @@ ifPresent()
 
 
 
-###Streams Collectors
+### Streams Collectors
 
 The collectors sit in the last of a stream pipeline and help to accumulate the elements of stream in the form of data structures, this is nothing but the final output of the stream pipeline. The class Collectors is an utility class which has many factory methods to create various predefined collectors implementations.
 
 The Collectors helps to reduce, summarise, group, and partition the elements in a stream. Although, there are many useful predefined collectors available, we can also write our own Stream Custom collectors.
 
-###Overview of Stream.collect() Method
+### Overview of Stream.collect() Method
 The collect() method is a Terminal Method on the streams pipeline. Which means, the method appear at the end of the pipeline. It performs mutable reduction operations on the elements of the stream to transform them into desired data structures.
 
 Typically, elements from a collection are streamed at the beginning of a Stream pipe line. Next, the elements in the stream are operated, transformed, filtered, or rearranged using various intermediate operations. Finally using the terminal method of collect() the elements in the stream can be transformed back into desired collection. This transformation strategy is defined by the Collector, which is passed as a parameter to the collect() method.
@@ -122,7 +122,7 @@ Java 8 Streams API provides many predefined implementations of Collector interfa
 
 
 
-###Collect Stream elements as List
+### Collect Stream elements as List
 Simplest way to collect Stream elements into a List is to used toList() method.
 
 ```java
@@ -139,7 +139,7 @@ List<Integer> linkedList = inputList
          .stream()
          .collect(Collectors.toCollection(LinkedList::new));
 ```
-###Collect Stream elements in UnmodifiableList()
+### Collect Stream elements in UnmodifiableList()
 
 In order to collect stream elements into an Unmodifiable List, we can make use of toUnmodifiableList() method.
 
@@ -149,7 +149,7 @@ List<Integer> unmodifiableList = inputList
          .collect(Collectors.toUnmodifiableList());
 ```
 
-###Collect Stream elements as Set
+### Collect Stream elements as Set
 In order to collect the stream elements into a Set, we can use toSet() collector.
 
 ```java
@@ -165,7 +165,7 @@ Set<Integer> treeSet = inputList
         .stream()
         .collect(Collectors.toCollection(TreeSet::new));
 ```
-###Collect Stream elements in UnmodifiableSet()
+### Collect Stream elements in UnmodifiableSet()
 
 Similarly, we can collect the stream elements as part of an Unmodifiable Set using toUnmodifiableSet() method.
 
@@ -174,7 +174,7 @@ Set<Integer> unmodifiableSet = inputList
         .stream()
         .collect(Collectors.toUnmodifiableSet());
 ```
-###Collect Stream elements as Map
+### Collect Stream elements as Map
 Using the toMap() collectors, we can collect stream elements into a Map. However, in order to create the map entries we need to provide key and value pairs. This is done by passing key function and value functions to the collector method.
 
 ```java
@@ -194,7 +194,7 @@ In the toMap() method we are passing two arguments, which are references to the 
 {42324=Barristan, 15242=Arthur, 1231=Strong}
 ```
 
-###Collect Stream elements in UnmodifiableMap()
+### Collect Stream elements in UnmodifiableMap()
 
 To create an Unmodifiable Map from the stream elements, we can use toUnmodifiableMap() method.
 
@@ -205,7 +205,7 @@ Map<Long, String> unmodifiableMap = students
 ```
 To lean more about converting a List to Map using Streams please visit Examples of Converting List to Map using Streams.
 
-###Join String elements from a Stream
+### Join String elements from a Stream
 Using the collectors implementation of joining(), we can concatenate String elements together.
 
 The next example shows a Stream of Student, where the joining() method is used to concatenate the last names of all the students separated by comma. It also passes a pair of prefix and suffix.
@@ -222,10 +222,10 @@ Printing the output String we get the desired result
 [Belwas,Selmy,Dayne]
 ```
 
-###Stream Collectors for numbers
+### Stream Collectors for numbers
 We will go through some of the ready to use collectors, specifically used on the numerical data in Stream.
 
-###Summarise Numerical Data in Stream
+### Summarise Numerical Data in Stream
 The Collectors provide useful methods which can be used on a Stream to generate useful metrics like sum, average, min and max using the numerical data (Integer, Long, or Double) within the stream elements.
 
 ```java
@@ -256,7 +256,7 @@ Similarly, we can also generate statistical data for Double, and Long numbers to
 
 The summarizing collector is useful when, we want to pull various statistics about the numerical data. However, if we are interested only the specific metrics then there are collectors, which returns individual metrics. Next, we will see such collectors.
 
-###Count the elements in Stream
+### Count the elements in Stream
 The counting() method on the Collectors can be used to simply count the total number of elements in the stream.
 
 ```java
@@ -264,7 +264,7 @@ Long count = students
         .stream()
         .collect(Collectors.counting());
 ```
-###Sum of Numbers in Stream
+### Sum of Numbers in Stream
 Collectors provide a way to sum up all the numeric data within a Stream. The methods summingInt(), summingDouble(), and summingLong() can be used to get sum of Integer, Double, and Long numbers respectively.
 
 ```java
@@ -273,7 +273,7 @@ int sum = students
          .collect(Collectors.summingInt(Student::getAge));
 ```
 
-###Average of Numbers in Stream
+### Average of Numbers in Stream
 We can find average of the numberical data from the stream using averagingInt(), averagingDouble(), and averagingLong() for integer, double, and long numbers respectively.
 
 ```java
@@ -282,7 +282,7 @@ double average = students
          .collect(Collectors.averagingInt(Student::getAge));
 ```
 
-###Find min and max elements in Stream
+### Find min and max elements in Stream
 Using the collector functions of minBy() and maxBy() and passing a comparator by can find the min and max element out of the stream.
 
 ```java
@@ -295,7 +295,7 @@ In this example, we are using minBy() collector on the Student stream and passin
 
 Similarly we can find the oldest student by using maxBy().
 
-###Group elements from Stream
+### Group elements from Stream
 The collector groupingBy() is used to group elements from the Stream. The first argument to this method is a classifier based on which the elements will be grouped. Moreover, we can pass another collector to specify how the grouped elements should be combined.
 
 ```java
@@ -305,7 +305,7 @@ Map<String, List<Student>> nameToStudentMap = students
 ```
 In this example, we are grouping all the students with same first name. Students with the same name will be grouped together in a List. As an output we get a Map containing first name as a key, and list of grouped students as its value.
 
-###Partition elements in Stream
+### Partition elements in Stream
 The partitionBy() collectors is used to make two groups from the elements of a Stream. We can pass a predicate to the method based on which the method will create two collections, containing the elements that match the given predicate and the elements that don’t. The output will be a Map where key is the boolean and values will be the partitioned collections.
 
 ```java
