@@ -315,3 +315,16 @@ Map<Boolean, List<Student>> partitionedStudents = students
 In this example, the predicate finds the students, who’s first name starts with ‘a’. In other words, we are partitioning the students stream based on whether their first name starts with ‘a’ or not.
 
 
+### maps vs flatmaps
+
+### consumer
+        void action(T t)
+
+### supplier
+        T get()
+
+### function
+        R apply(T t)
+
+### predicate
+        boolean test(T t)

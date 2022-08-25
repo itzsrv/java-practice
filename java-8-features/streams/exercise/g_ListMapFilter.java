@@ -10,7 +10,7 @@ public class g_ListMapFilter {
         List<String> people = Arrays.asList("Abraham", "Jack Sparrow", "James", "Captain America", "Amanda", "Wakanda", "Iron Man", "Batman", "Supreman");
 
         people.stream()
-            .map(String::toLowerCase)
+            .map(p->p.toLowerCase())
             .filter(p->p.startsWith("a"))
             .forEach(System.out::println);
         

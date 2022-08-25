@@ -16,9 +16,12 @@ public class practice {
         people.stream()
             .map(String::toLowerCase)
             .filter(p->p.startsWith("a"))
-            .
+
+            ;
             
-        
+        // Arrays.stream(new int[] {2,4,8,6,10})
+        //     .map(p->p*p)
+        //     .
         
     }
     
