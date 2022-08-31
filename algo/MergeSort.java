@@ -1,6 +1,6 @@
 package algo;
 
-public class MergerSort {
+public class MergeSort {
 
     public static int[] sort(int[] arr) {
         divide(arr, 0, arr.length-1);
@@ -61,6 +61,17 @@ public class MergerSort {
         }
 
     }
+
+    /*
+     * 
+     * time complexity
+     * 
+     * O(n log n )
+     * 
+     * 
+     * O(log n) from division 
+     * O(n) from conquer
+     */
     
 
 }

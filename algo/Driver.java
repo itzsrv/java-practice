@@ -4,11 +4,11 @@ public class Driver {
     
     public static void main(String[] args) {
         
-        int[] arr = {7,8,3,1,2};
-        //int[] mergearr = {6,3,9,5,2,8};
+        //int[] arr = {7,8,3,1,2};
+        int[] anotherarr = {6,3,9,5,2,8};
 
         System.out.print("Initial Array : ");
-        for (int i : arr) {
+        for (int i : anotherarr) {
             System.out.print(i+ " ");
         }
         System.out.println();
@@ -19,7 +19,9 @@ public class Driver {
         //int[] sortedarr = InsertionSort.sort(arr);
 
         
-        int[] sortedarr = MergerSort.sort(arr);
+        //int[] sortedarr = MergeSort.sort(anotherarr);
+
+        int[] sortedarr = QuickSort.sort(anotherarr, 0, anotherarr.length-1);
 
         System.out.print("Sorted Array  : ");
         for (int i : sortedarr) {
