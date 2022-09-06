@@ -145,7 +145,7 @@ Exception in thread "main" java.util.ConcurrentModificationException
 
 
 
-So here you go I got a concurrent modification exception exactly at the line where I was trying to insert the item and iterate over the map key.
+So here you got a concurrent modification exception exactly at the line where I was trying to insert the item and iterate over the map key.
 
 So that is concurrent modification exception. 
 
