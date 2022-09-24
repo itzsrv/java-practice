@@ -86,7 +86,7 @@ other options reduce the stream to a single summary element
 
 
 ## Optional
-One thing which may go wrong the the matching and finding elements is that there might be a case when no element is returned by them. In such a case these methods simply return Null. This may be error-prone to the client codes and the client program needs to put a Null check. Java 8 comes up with a special class which helps solving this problem. The Optional class represents whether an object is assigned or unassigned (Null).
+One thing which may go wrong in the matching and finding elements is that there might be a case when no element is returned by them. In such a case these methods simply return Null. This may be error-prone to the client codes and the client program needs to put a Null check. Java 8 comes up with a special class which helps solving this problem. The Optional class represents whether an object is assigned or unassigned (Null).
 
 The methods like **findAny, findFirst, and reduce** (when called without providing an identity) return values wrapped under Optional. We can call all of the stream like operations on Optional as well. Below, we will look at the use of Optional in matching and finding operations.
 
